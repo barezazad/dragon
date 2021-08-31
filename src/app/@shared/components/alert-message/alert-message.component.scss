@@ -1,0 +1,15 @@
+.cancel{
+  float: left;
+  color: black;
+  background-color: var(--white);
+}
+.submit{
+  float: right;
+}
+.close{
+  background-color: var(--delete-color);
+  color: var(--white);
+  mat-icon{
+    color: var(--white);
+  }
+}

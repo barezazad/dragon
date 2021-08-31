@@ -1,0 +1,215 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic&subset=latin-ext");
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic&amp;subset=latin-ext");
+
+:root {
+  // fixed variables
+  --green-success: #55a029;
+  --default-font: "Open Sans", "Helvetica Neue";
+  // --default-font: "Roboto", sans-serif, "Open Sans", "Helvetica Neue";
+  --delete-color: #b71c1c;
+  --error-color: #b71c1c;
+  --edit-color: #000000;
+  --third-option: green;
+
+  // Theme1 colors;
+  .theme1 {
+    --primary: #00695c;
+    --primary-dark: #439889;
+    --primary-light: #003d33;
+    --accent: #bf360c;
+    --accent-dark: #870000;
+    --accent-light: #f9683a;
+    --white: #ffffff;
+    --background: #fafafa;
+    --black: #161618;
+    --gray: #707070;
+    --gray-dark: #212124;
+    --gray-light: #d0d0d0;
+    --row-hover: #d3f6f2;
+  }
+
+  // Theme2 colors;
+  .theme2 {
+    --primary: #00838e;
+    --primary-dark: #005661;
+    --primary-light: #4fb3be;
+    --accent: #b71c1c;
+    --accent-dark: #7f0000;
+    --accent-light: #f05545;
+    --white: #ffffff;
+    --background: #fafafa;
+    --black: #161618;
+    --gray: #707070;
+    --gray-dark: #212124;
+    --gray-light: #d0d0d0;
+    --row-hover: #d5f6d3;
+  }
+
+  // Theme3 colors;
+  .theme3 {
+    --primary: #1775d1;
+    --primary-dark: #004a9f;
+    --primary-light: #63a3ff;
+    --accent: #d8a31a;
+    --accent-dark: #a27500;
+    --accent-light: #ffd452;
+    --white: #ffffff;
+    --background: #fafafa;
+    --black: #161618;
+    --gray: #707070;
+    --gray-dark: #212124;
+    --gray-light: #d0d0d0;
+    --row-hover: #bbdbff;
+  }
+
+  // Theme4 colors;
+  .theme4 {
+    --primary: #6574cf;
+    --primary-dark: #2f499d;
+    --primary-light: #98a2ff;
+    --accent: #f9b800;
+    --accent-dark: #c18800;
+    --accent-light: #ffea4d;
+    --white: #ffffff;
+    --background: #fafafa;
+    --black: #161618;
+    --gray: #707070;
+    --gray-dark: #212124;
+    --gray-light: #d0d0d0;
+    --row-hover: #fcebff;
+  }
+
+  // Theme5 colors;
+  .theme5 {
+    --primary: #0455c0;
+    --primary-dark: #002e8f;
+    --primary-light: #5a81f3;
+    --accent: #b71c1c;
+    --accent-dark: #7f0000;
+    --accent-light: #f05545;
+    --white: #ffffff;
+    --background: #fafafa;
+    --black: #000000;
+    --gray: #212124;
+    --gray-dark: #161618;
+    --gray-light: #707070;
+    --row-hover: #d1e5fd;
+  }
+}
+
+* {
+  font-family: var(--default-font);
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+button {
+  font-weight: normal !important;
+  font-size: medium !important;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  .mat-sidenav-container {
+    flex: 1;
+
+    .mat-sidenav {
+      width: 180px;
+
+      a {
+        .mat-icon {
+          margin-right: 10px;
+        }
+
+        display: block;
+      }
+    }
+
+    .main {
+      padding: 16px;
+    }
+  }
+
+  app-footer {
+    display: flex;
+    height: 40px;
+    border-top: 0.1px #747074 dashed;
+    //background-color: #4b5974;
+    //justify-content: center;
+    font-size: small;
+
+    .mat-card {
+      text-align: right;
+      width: 100%;
+      //color: #4b5974;
+    }
+  }
+
+  app-footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 40px;
+    grid-template-areas: "a b";
+
+    .footer-l {
+      grid-area: a;
+      align-self: center;
+      justify-self: left;
+      color: #4b5974;
+      font-size: small;
+      margin-left: 10px;
+      margin-top: 1px;
+    }
+
+    .now {
+      grid-area: b;
+      align-self: center;
+      justify-self: right;
+      color: #4b5974;
+      font-size: small;
+      margin-right: 10px;
+    }
+
+  }
+}
+
+.spacer {
+  display: flex;
+  flex: 1 1 auto;
+}
+
+@media screen and (max-width: 992px) {
+  .visible-md {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .visible-sm {
+    display: block;
+  }
+
+  .nav-brand {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hidden-sm {
+    display: none;
+  }
+}

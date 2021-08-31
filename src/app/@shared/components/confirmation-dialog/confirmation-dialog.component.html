@@ -1,0 +1,16 @@
+<h3><b style="color: #0e526b">{{data.message}} </b> {{data.item}}</h3>
+<br>
+<h3>Are you sure ?</h3>
+<br>
+<mat-divider></mat-divider>
+<br>
+<div class="btn-actions">
+  <button mat-stroked-button [color]="data.btnColor ? data.btnColor : 'primary'" (click)="confirm('yes')">
+    <mat-icon>{{data.icon}}</mat-icon>
+    {{data.okBtnText}}
+  </button>
+  <button mat-stroked-button color="accent" (click)="confirm('no')">
+    <mat-icon>close</mat-icon>
+    {{data.cancelBtnText}}
+  </button>
+</div>

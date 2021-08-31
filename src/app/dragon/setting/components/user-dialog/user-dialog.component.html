@@ -1,0 +1,107 @@
+<h3 mat-dialog-title>{{ dialogData.title | titlecase }}</h3>
+<mat-divider></mat-divider><br>
+<mat-dialog-content class="mat-typography">
+  <form [formGroup]="dataForm">
+
+    <div class="rows">
+      <mat-form-field appearance="outline">
+        <mat-label>{{ 'full name ' | titlecase }}</mat-label>
+        <input type="text" required matInput formControlName="name">
+        <mat-error>
+          <app-error-handling [formGroup]="dataForm" [field]="'name'" [message]="'full name'"></app-error-handling>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="rows">
+      <mat-form-field appearance="outline">
+        <mat-label>{{ 'username' | titlecase }}</mat-label>
+        <input #username type="text" required matInput formControlName="username">
+        <mat-error>
+          <app-error-handling [formGroup]="dataForm" [field]="'username'" [message]="'username'"></app-error-handling>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="rows" *ngIf="!user.id?true:false">
+      <mat-form-field appearance="outline">
+        <mat-label>{{ 'password ' | titlecase }}</mat-label>
+        <input matInput [required]="validatePassword !== (undefined || null)" formControlName="password"
+          [type]="hide ? 'password' : 'text'">
+        <button mat-icon-button matSuffix tabindex=-1 type="button" (click)="hide = !hide"
+          [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-error>
+          <app-error-handling [formGroup]="dataForm" [field]="'password'" [message]="'password'" [condition]="'8'">
+          </app-error-handling>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="rows">
+      <mat-form-field appearance="outline">
+        <mat-label>{{ 'email' | titlecase }}</mat-label>
+        <input type="text" required matInput formControlName="email">
+        <mat-icon matSuffix>email</mat-icon>
+        <mat-error>
+          <app-error-handling [formGroup]="dataForm" [field]="'email'" [message]="'email'"></app-error-handling>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="rows">
+      <ng-container *ngIf="roles$|async as roles">
+        <mat-form-field appearance="outline">
+          <mat-label> {{ 'Role' | titlecase }}</mat-label>
+          <mat-select required formControlName="role_id">
+            <mat-option *ngFor="let i of roles.list" [value]="i.id"> {{ i.name | titlecase }}
+            </mat-option>
+          </mat-select>
+          <mat-error>
+            <app-error-handling [formGroup]="dataForm" [field]="'role_id'" [message]="'role'"></app-error-handling>
+          </mat-error>
+        </mat-form-field>
+      </ng-container>
+    </div>
+
+    <div class="rows">
+      <ng-container *ngIf="languages$|async as languages">
+        <mat-form-field appearance="outline">
+          <mat-label> {{ 'languages' | titlecase }}</mat-label>
+          <mat-select required formControlName="lang">
+            <mat-option *ngFor="let i of languages" [value]="i"> {{ i | titlecase }}
+            </mat-option>
+          </mat-select>
+          <mat-error>
+            <app-error-handling [formGroup]="dataForm" [field]="'lang'" [message]="'language'"></app-error-handling>
+          </mat-error>
+        </mat-form-field>
+      </ng-container>
+    </div>
+
+    <div class="rows">
+      <mat-form-field appearance="outline">
+        <mat-label> {{ 'Status' | titlecase }}</mat-label>
+        <mat-select required formControlName="status">
+          <mat-option *ngFor="let i of statusTypes" [value]="i"> {{ i | titlecase }}
+          </mat-option>
+        </mat-select>
+        <mat-error>
+          <app-error-handling [formGroup]="dataForm" [field]="'status'" [message]="'status'"></app-error-handling>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <div class="action-button">
+    <button class="cancel" mat-stroked-button type="button" cdkFocusInitial (click)="dialogRef.close()">
+      <mat-icon>cancel</mat-icon> {{ 'Cancel' | titlecase }}
+    </button>
+    <button class="submit" mat-stroked-button [disabled]="!dataForm.valid" (click)="submit()" type="submit">
+      <mat-icon>done</mat-icon>{{ 'Submit' | titlecase }}
+    </button>
+  </div>
+</mat-dialog-actions>

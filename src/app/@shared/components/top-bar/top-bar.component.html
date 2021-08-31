@@ -1,0 +1,43 @@
+<div class="app-sub">
+  <mat-card>
+    <mat-card-content class="pageTitle mat-elevation-z6">
+
+      <section class="target">
+        <span *appPermission="topBar.addButton.permission">
+          <button class="primary-button" mat-stroked-button *ngIf="topBar.addButton.status"
+            (click)="eventActions.emit({action:topBar.addButton.action,row: 0 })">
+            <mat-icon>{{topBar.addButton.icon}}</mat-icon>
+            {{ topBar.addButton.name | titlecase }}
+          </button>
+        </span>
+      </section>
+
+      <section class="searchForm">
+        <form (ngSubmit)="search(searchBar.value)" *ngIf="topBar.search.status">
+          <mat-form-field appearance="outline">
+            <input #searchBar matInput placeholder="Search">
+            <mat-icon matSuffix>search</mat-icon>
+          </mat-form-field>
+        </form>
+      </section>
+      <section class="filter-section">
+        <button class="white-button" mat-stroked-button (click)="showFilter = !showFilter"
+          *ngIf="topBar.search.status && topBar.search.filter.status">
+          <mat-icon>filter_alt</mat-icon>Filter
+        </button>
+      </section>
+      <section class="export-section">
+        <span *appPermission="topBar.export.permission">
+          <app-file-export *ngIf="topBar.export.status" [data]="topBar.export.excelEndPoint">
+          </app-file-export>
+        </span>
+      </section>
+    </mat-card-content>
+    <mat-card-content [ngClass]="showFilter?'show-filter':'hide-filter'">
+      <div class="filter-panel" [ngStyle]="{'height.px':topBar.search.filter.height }">
+        <!-- <app-filter-client *ngIf="topBar.search.filter.content === 'client'" (eventFilterClient)="emitClient($event)">
+        </app-filter-client> -->
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

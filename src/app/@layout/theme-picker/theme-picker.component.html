@@ -1,0 +1,11 @@
+<button class="more" mat-icon-button [matMenuTriggerFor]="menu">
+  <mat-icon>more_vert</mat-icon>
+</button>
+<mat-menu #menu="matMenu" fxLayoutAlign="end">
+  <ng-container *ngFor="let item of themes">
+    <a mat-menu-item (click)="changeTheme(item.name)">
+      <mat-icon [style.color]="item.color">color_lens</mat-icon> {{item.caption|titlecase}}
+      <mat-icon *ngIf="item.name === currentTheme" [style.color]="item.color">done</mat-icon>
+    </a>
+  </ng-container>
+</mat-menu>

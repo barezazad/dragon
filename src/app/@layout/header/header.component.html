@@ -1,0 +1,67 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <div fxLayout="row">
+      <a class="app-name" [routerLinkActive]="'active'" routerLink="/" mat-button>
+        <img src="assets/img/dragon1.png" alt="dragon" class="logo" />
+        {{ "dragon" | uppercase }}
+      </a>
+    </div>
+
+    <app-theme-picker></app-theme-picker>
+
+    <span class="menu-spacer"></span>
+    <div class="full-width" fxShow="true" fxHide.lt-md>
+      <a mat-button [routerLinkActive]="'active'" routerLink="dashboard">
+        <mat-icon>home</mat-icon>Home
+      </a>
+      <a mat-button [routerLinkActive]="'active'" routerLink="settings">
+        <mat-icon>settings</mat-icon>Setting
+      </a>
+
+
+      <span class="space-nav"></span>
+      <a class="account-name" mat-button [routerLinkActive]="'active'" routerLink="/profile">
+        {{operatorName | titlecase}}
+      </a>
+
+      <button class="lang" mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>language</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <span (click)="changeLang('en')">English</span>
+        </button>
+        <button mat-menu-item>
+          <span (click)="changeLang('ar')">Arabic</span>
+        </button>
+        <button mat-menu-item>
+          <span (click)="changeLang('ku')">Kurdish</span>
+        </button>
+      </mat-menu>
+
+      <a class="logout" mat-button (click)="logout()">
+        <mat-icon>exit_to_app</mat-icon>
+      </a>
+    </div>
+
+    <div fxShow="true" fxHide.gt-sm>
+      <button class="more" mat-icon-button [matMenuTriggerFor]="menu2">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu2="matMenu" fxLayoutAlign="end">
+        <a mat-menu-item [routerLinkActive]="'active'" routerLink="/">
+          <mat-icon>home</mat-icon>Home
+        </a>
+        <a mat-menu-item [routerLinkActive]="'active'" routerLink="/">
+          <mat-icon>cloud</mat-icon>Menu Item 5
+        </a>
+        <a mat-menu-item [routerLinkActive]="'active'" routerLink="admin">
+          <mat-icon>settings</mat-icon>Setting
+        </a>
+        <a mat-menu-item [routerLinkActive]="'active'" routerLink="admin">
+          <mat-icon>exit_to_app</mat-icon>Logout
+        </a>
+      </mat-menu>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>

@@ -1,0 +1,68 @@
+.menu-spacer {
+  flex: 1 1 auto;
+}
+.mat-icon {
+  margin-right: 10px;
+}
+.logo {
+  margin-right: 5px;
+  height: 35px;
+  text-decoration: none;
+  background-color: white;
+  padding: 2px;
+  border-radius: 50%;
+}
+mat-toolbar {
+  // background: linear-gradient(to right,#002d55 , #004e92);
+  // background: linear-gradient(to right, #094e75, #338dc2);
+  background-color: var(--primary);
+}
+
+.account-name {
+  text-decoration: none;
+  // font-size: 18px;
+  padding-top: 2px;
+  padding-left: 15px;
+}
+.logout {
+  display: inline-block;
+  mat-icon {
+  }
+}
+
+.full-width {
+  a {
+    color: var(--white);
+    mat-icon {
+      color: var(--white);
+    }
+  }
+  a.active {
+    // border-left: 5px solid var(--accent);
+    background-color: var(--accent);
+    color: var(--white) !important;
+    mat-icon {
+      color: var(--white) !important;
+    }
+  }
+  .lang {
+    color: var(--white);
+    mat-icon {
+      color: var(--white);
+    }
+  }
+  .space-nav {
+    padding-right: 20px;
+    border-right: 1px solid var(--white);
+  }
+}
+
+a.app-name {
+  color: var(--white);
+  font-weight: bold;
+}
+.more {
+  .mat-icon {
+    color: var(--white);
+  }
+}

@@ -1,0 +1,105 @@
+.container {
+  display: flex;
+  flex-direction: row;
+}
+.firstChild {
+  // background-image: url("../../../../../assets/img/login-Graph.png");
+  background-image: linear-gradient(to right, #2c3e50, #4ca1af);
+  background-size: 100% 100%;
+  width: 50%;
+}
+
+.lastChild {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.lastChild > h1 {
+  letter-spacing: 2px;
+  font-weight: lighter;
+  font-size: 40px;
+  color: #8e8e8e;
+  margin-bottom: 120px;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+}
+h2 {
+  color: grey;
+  margin: 20px 0;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.checkbox-section {
+  color: grey;
+  font-size: 15px;
+  text-transform: capitalize;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.checkbox-section > h6 {
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.checkbox-section > h6:hover {
+  text-decoration: underline;
+}
+
+::ng-deep .checkbox .mat-checkbox-background,
+::ng-deep .checkbox .mat-checkbox-frame {
+  border-radius: 28% !important;
+  border-color: #bebcbc;
+}
+
+@media only screen and (max-width: 700px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+  }
+  .lastChild {
+    width: 100%;
+  }
+  .firstChild {
+    display: none;
+  }
+  h2 {
+    color: grey;
+    margin: 20px 0;
+    font-size: 15px;
+  }
+
+  .checkbox-section {
+    color: grey;
+    font-size: 12px;
+    text-transform: capitalize;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .checkbox-section > h6 {
+    font-size: 12px;
+    cursor: pointer;
+  }
+
+  .checkbox-section > h6:hover {
+    text-decoration: underline;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+  }
+}

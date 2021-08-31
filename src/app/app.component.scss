@@ -1,0 +1,451 @@
+::ng-deep {
+  // design snackbar-alert
+  .error {
+    color: var(--white) !important;
+    background-color: var(--error-color) !important;
+  }
+
+  .success {
+    color: var(--white) !important;
+    background-color: var(--green-success) !important;
+  }
+
+  .warn {
+    color: var(--white) !important;
+    background-color: var(--accent-light) !important;
+  }
+
+  .info {
+    color: var(--white) !important;
+    background-color: var(--primary-light) !important;
+  }
+
+  .mat-simple-snackbar-action {
+    color: var(--white);
+  }
+
+  // primary button
+  .primary-button {
+    border: 1px var(--white) solid !important;
+    color: var(--white);
+    background-color: var(--primary);
+    font-size: small !important;
+
+    mat-icon {
+      padding-right: 5px;
+      color: var(--white);
+    }
+  }
+  .primary-button:hover {
+    color: var(--primary);
+    background-color: var(--white);
+    border: 1px var(--primary) solid !important;
+    font-size: small !important;
+
+    mat-icon {
+      color: var(--primary);
+    }
+  }
+
+  // white button
+  .white-button {
+    color: var(--primary);
+    background-color: var(--white);
+    border: 1px var(--primary) solid !important;
+
+    mat-icon {
+      padding-right: 5px;
+      color: var(--primary);
+    }
+  }
+  .white-button:hover {
+    border: 1px var(--white) solid !important;
+    color: var(--white);
+    background-color: var(--primary);
+    font-weight: bold;
+
+    mat-icon {
+      color: var(--white);
+      font-weight: bold;
+    }
+  }
+
+  //date picker icon
+  .datepicker {
+    padding-left: 8px;
+
+    button {
+      color: var(--white);
+    }
+
+    button:hover {
+      color: var(--white);
+      border: 1px var(--white) solid;
+    }
+  }
+
+  //************* tab design ************ //
+  .mat-tab-body-wrapper {
+    padding: 0;
+  }
+
+  .mat-tab-label-content {
+    mat-icon {
+      margin-right: 1em;
+    }
+  }
+
+  .mat-tab-label-content[focus] {
+    background-color: var(--white);
+    color: var(--primary) !important;
+
+    mat-icon {
+      color: var(--primary);
+    }
+  }
+
+  mat-icon.example-tab-icon {
+    color: var(--primary);
+  }
+
+  .mat-tab-group.mat-primary .mat-ink-bar,
+  .mat-tab-nav-bar.mat-primary .mat-ink-bar {
+    background-color: var(--primary);
+  }
+
+  nav {
+    mat-icon.back-button {
+      color: var(--primary);
+      cursor: pointer;
+      outline: none;
+    }
+
+    span.back-button {
+      color: var(--primary);
+      cursor: pointer;
+      outline: none;
+    }
+  }
+
+  //************* action button ************ //
+  .cancel {
+    mat-icon {
+      padding-right: 5px;
+    }
+  }
+
+  .submit {
+    background-color: var(--primary);
+    color: var(--white);
+
+    mat-icon {
+      color: var(--white);
+      padding-right: 5px;
+    }
+  }
+
+  .submit[disabled] {
+    background-color: var(--white);
+    color: var(--primary) !important;
+
+    mat-icon {
+      color: var(--primary);
+    }
+  }
+
+  .action-button{
+    padding-right: 12px;
+  }
+
+  //************* array form ************ //
+  .arrayForm {
+    mat-icon:not(.add) {
+      text-align: right;
+      cursor: pointer;
+    }
+
+    .add {
+      color: var(--white);
+    }
+
+    .remove {
+      color: var(--delete-color);
+    }
+
+    .update {
+      color: var(--primary);
+    }
+
+    .rows > * {
+      padding-right: 12px;
+    }
+
+    .form-field {
+      margin-right: 12px;
+    }
+
+    mat-form-field {
+      width: 200px;
+    }
+
+    input.mat-input-element {
+      height: 100%;
+    }
+  }
+
+  //************* input forms ************ //
+  .rows > * {
+    padding-right: 12px;
+
+    mat-form-field.textarea,
+    .chip-list {
+      width: 412px;
+    }
+
+    input.mat-input-element {
+      height: 100%;
+    }
+
+    .mat-select-value {
+      padding: 2px !important;
+    }
+
+    @media only screen and (max-width: 735px) {
+      mat-form-field.textarea,
+      .chip-list {
+        width: 200px;
+      }
+    }
+
+  }
+
+  .form-field {
+    margin-right: 12px;
+  }
+
+  mat-form-field {
+    width: 200px;
+  }
+
+  .mat-form-field-appearance-legacy .mat-form-field-label {
+    height: 100%;
+  }
+
+  mat-form-field.textarea {
+    width: 412px;
+  }
+
+  @media only screen and (max-width: 735px) {
+    mat-form-field.textarea {
+      width: 200px;
+    }
+  }
+
+  .mat-form-field-appearance-legacy .mat-form-field-underline {
+    background-color: rgb(90, 90, 90);
+  }
+
+  mat-icon {
+    color: black;
+  }
+
+  //************* tables design ************ //
+  .app-sub {
+    padding-top: 10px;
+    display: grid;
+
+    mat-card-content {
+      margin-bottom: 0;
+    }
+
+    .pageTitle {
+      display: grid;
+      grid-template-columns: 1fr 1fr 100px 1fr;
+      justify-items: left;
+      align-items: center;
+      border-radius: 5px 5px 0 0;
+      padding: 3px 0;
+
+      //input outline color
+      .mat-form-field-appearance-outline .mat-form-field-outline {
+        color: var(--primary) !important;
+      }
+
+      //mat-input focused color
+      .mat-form-field-appearance-outline.mat-focused
+        .mat-form-field-outline-thick {
+        color: var(--primary) !important;
+      }
+
+      // mat-input carent color
+      .mat-input-element {
+        caret-color: var(--black) !important;
+        color: var(--black) !important;
+      }
+
+      .mat-form-field-flex > .mat-form-field-infix {
+        padding: 6px 10px 10px 10px !important;
+      }
+
+    }
+
+    mat-card {
+      padding: 0;
+      border-radius: 5px 5px 5px 5px;
+    }
+
+    .target {
+      padding-left: 8px;
+    }
+
+    .searchForm {
+      justify-self: center;
+
+      form > mat-form-field {
+        width: 600px;
+        height: 48px !important;
+
+        input {
+          color: var(--white) !important;
+        }
+
+        mat-icon {
+          color: var(--white);
+        }
+      }
+
+      @media only screen and (max-width: 1300px) {
+        form > mat-form-field {
+          width: 300px;
+        }
+      }
+
+      @media only screen and (max-width: 1080px) {
+        form > mat-form-field {
+          width: 200px;
+        }
+      }
+    }
+
+    .filter-section {
+      margin-left: 10px;
+    }
+
+    .export-section {
+      justify-self: right;
+      padding-right: 8px;
+    }
+
+    .show-filter {
+      opacity: 1;
+      transition: opacity 1s;
+
+      .filter-panel {
+        background-color: var(--white);
+        height: 60px;
+      }
+    }
+
+    .hide-filter {
+      opacity: 0;
+      transition: opacity 1s;
+
+      .filter-panel {
+        height: 0;
+        display: none;
+      }
+    }
+
+    th.flat-action {
+      width: 130px;
+      text-align: center;
+    }
+
+    td.actions {
+      text-align: center;
+    }
+
+    td > button {
+      mat-icon:hover {
+        background-color: var(--primary);
+        color: var(--white);
+        border-radius: 50%;
+      }
+    }
+
+    .panel-container .table-container {
+      width: 100%;
+      overflow: auto;
+    }
+
+    table {
+      width: 100%;
+    }
+
+    .mat-row:nth-child(odd) {
+      background-color: #f8f8f8;
+    }
+
+    // change row color in hover
+    .mat-row:hover {
+      background-color: var(--row-hover);
+    }
+
+    ::ng-deep mat-header-cell {
+      font-weight: bold;
+      background-color: #d6d6d6;
+    }
+
+    mat-cell {
+      font-size: small;
+    }
+
+    mat-paginator {
+      border-radius: 0 0 5px 5px !important;
+    }
+
+  }
+
+  .mat-edit,
+  .mat-edit .mat-icon {
+    color: var(--edit-color);
+  }
+
+  .mat-delete,
+  .mat-delete .mat-icon {
+    color: var(--delete-color);
+  }
+
+  .mat-general,
+  .mat-general .mat-icon {
+    color: var(--third-option);
+  }
+
+  //tooltip background color
+  .mat-tooltip {
+    background-color: var(--primary);
+  }
+
+  .cdk-overlay-pane {
+    .mat-menu-panel {
+      min-height: auto;
+    }
+
+    .mat-menu-content:not(:empty) {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
+
+  button {
+    font-size: small !important;
+  }
+
+}
+
+// tab icon space
+::ng-deep .mat-tab-link {
+  mat-icon {
+    margin-right: 10px !important;
+  }
+}

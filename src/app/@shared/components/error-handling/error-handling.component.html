@@ -1,0 +1,15 @@
+<mat-error *ngIf="formGroup.get(field)?.hasError('required')">
+  {{ message | titlecase}} is <strong>required</strong>
+</mat-error>
+<mat-error *ngIf="formGroup.get(field)?.hasError('pattern')">
+  {{ message | titlecase}} not <strong>valid</strong>
+</mat-error>
+<mat-error *ngIf="validation.checkFiled(field)">
+  {{ validation.getErrorMessage(field) }}
+</mat-error>
+<mat-error *ngIf="formGroup.get(field)?.hasError('minlength')">
+  {{ message | titlecase}} min of length is <strong>{{condition}}</strong>
+</mat-error>
+<mat-error *ngIf="formGroup.get(field)?.hasError('maxlength')">
+  {{ message | titlecase}} max of length is <strong>{{condition}}</strong>
+</mat-error>

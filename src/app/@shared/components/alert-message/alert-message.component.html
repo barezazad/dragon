@@ -1,0 +1,23 @@
+<h1 mat-dialog-title>{{ data.title | titlecase }}</h1>
+<mat-divider></mat-divider><br>
+<mat-dialog-content>
+  <div class="rows" *ngIf="data.message.status === true">
+    <mat-form-field [style.width]="data.message.width">
+      <textarea readonly matInput placeholder="{{data.message.name | titlecase}}"
+        [rows]="data.message.rows">{{ data.message.content | titlecase }}</textarea>
+    </mat-form-field>
+  </div>
+  <div class="rows" *ngIf="data.deleteMessage === true" style="width:400px;">
+    <h3>Are You Sure For Deleting ?</h3>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button [ngClass]="data.close.class" *ngIf="data.close.status === true" mat-stroked-button type="button"
+    (click)="dialogRef.close(false)">
+    <mat-icon>close</mat-icon> {{ data.close.title | titlecase }}
+  </button>
+  <button class="submit" *ngIf="data.submit.status === true" mat-stroked-button type="submit"
+    (click)="dialogRef.close(true)">
+    <mat-icon>done</mat-icon>{{ data.submit.title | titlecase }}
+  </button>
+</mat-dialog-actions>

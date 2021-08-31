@@ -1,0 +1,44 @@
+<div *transloco="let t;read:'dashboard'">
+  <h1>{{ t('dashboard') }}</h1>
+  <br>
+  <div fxLayout="row" fxLayoutAlign="space-around none" fxLayoutGap="10px" fxLayout.sm="column" fxLayout.xs="column">
+    <mat-card fxFlex="22">
+      <app-card-stats caption="STATS 1" total="15K" percentage="10%" symbol="trending_up"></app-card-stats>
+    </mat-card>
+    <mat-card fxFlex="22">
+      <app-card-stats caption="STATS 2" total="12.3K" percentage="80%" symbol="done"></app-card-stats>
+    </mat-card>
+    <mat-card fxFlex="22">
+      <app-card-stats caption="STATS 3" total="33K" percentage="12%" symbol="history"></app-card-stats>
+    </mat-card>
+    <mat-card fxFlex="22">
+      <app-card-stats caption="STATS 4" total="4.2K" percentage="23%" symbol="card_giftcard"></app-card-stats>
+    </mat-card>
+  </div>
+
+  <br>
+  <mat-divider></mat-divider>
+
+  <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="10px" fxLayout.sm="column" fxLayout.xs="column">
+    <div fxFlex="45">
+      <app-line-chart [chartOptions]="chartOptions1"></app-line-chart>
+    </div>
+    <div fxFlex="45">
+      <app-pie-chart [chartOptions]="chartOptions5"></app-pie-chart>
+    </div>
+  </div>
+
+
+  <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="10px" fxLayout.sm="column" fxLayout.xs="column">
+    <div fxFlex="30">
+      <app-area [chartOptions]="chartOptions3"></app-area>
+    </div>
+    <div fxFlex="30">
+      <app-area [chartOptions]="chartOptions4"></app-area>
+    </div>
+    <div fxFlex="30">
+      <app-line-chart [chartOptions]="chartOptions2"></app-line-chart>
+    </div>
+  </div>
+
+</div>

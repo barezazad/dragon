@@ -1,0 +1,10 @@
+<nav mat-tab-nav-bar>
+  <ng-container *ngFor="let tab of routes" class="active-tab">
+    <a mat-tab-link *ngIf="permissions.includes(tab.permission)" [routerLink]="tab.path" routerLinkActive
+      #rla="routerLinkActive" class="active-tab" [active]="rla.isActive">
+      <mat-icon class="example-tab-icon">{{tab.symbol}}</mat-icon>
+      {{tab.name}}
+    </a>
+  </ng-container>
+</nav>
+<router-outlet></router-outlet>

@@ -1,0 +1,9 @@
+<app-top-bar [topBar]="topBar" [params]="listParams" (listParam)="listParam($event)"
+  (eventActions)="eventActions($event)">
+</app-top-bar>
+
+<ng-container *ngIf="users$|async as dataSource">
+  <app-data-table class="user" [dataSource]="dataSource" [columns]="columns" [params]="listParams"
+    (listParam)="listParam($event)" (eventActions)="eventActions($event)">
+  </app-data-table>
+</ng-container>

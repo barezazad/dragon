@@ -1,0 +1,11 @@
+::ng-deep .user {
+  .mat-column-username {
+    flex: 0 0 25% !important;
+    width: 25% !important;
+  }
+              // column name , you can change style and properties
+  .mat-column-role {
+      flex: 0 0 15% !important;
+      width: 15% !important;
+    }
+}

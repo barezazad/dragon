@@ -1,0 +1,35 @@
+<div class="container">
+
+  <div class="lastChild">
+    <h1>Dragon v1.0.1</h1>
+    <!--    <h2>Welcome back! Please login to your account</h2>-->
+    <form [formGroup]="loginForm" (ngSubmit)="doLogin()">
+      <mat-form-field appearance="outline">
+        <mat-label>Username</mat-label>
+        <input matInput placeholder="Username" formControlName="username" #username type="text" />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput placeholder="Password" formControlName="password" #password
+          [type]="hide ? 'password' : 'text'" />
+        <button mat-icon-button matSuffix type="button" (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+      <section class="checkbox-section">
+        <div class="checkbox"></div>
+        <!-- <mat-checkbox class="checkbox" color="primary">
+            remember me
+          </mat-checkbox> -->
+        <!-- <h6 (click)="forgotPassword()">Forgot Password</h6> -->
+      </section>
+      <button mat-stroked-button class="btnLogin white-button">
+        <mat-icon>fingerprint</mat-icon>
+        Login
+      </button>
+
+    </form>
+  </div>
+  <div class="firstChild"></div>
+</div>
