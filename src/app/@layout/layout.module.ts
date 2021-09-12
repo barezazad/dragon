@@ -9,7 +9,7 @@ import { ThemePickerComponent } from './theme-picker/theme-picker.component';
 @NgModule({
   declarations: [HeaderComponent, FooterComponent, ThemePickerComponent],
   imports: [CommonModule, RouterModule, CoreModule],
-  exports: [HeaderComponent, FooterComponent],
+  exports: [HeaderComponent, FooterComponent, ThemePickerComponent],
 })
 export class LayoutModule {
 }

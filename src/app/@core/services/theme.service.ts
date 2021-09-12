@@ -17,7 +17,7 @@ export class ThemeService {
   /** Add class to body-tag */
   addTheme(classToAdd: any): void {
     if (!this.themes.filter((e: { name: string; }) => e.name === classToAdd).length) {
-      classToAdd = this.themes[0].name;
+      classToAdd = this.themes[1].name;
     }
     this.renderer.addClass(document.body, classToAdd);
 

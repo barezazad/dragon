@@ -1,0 +1,76 @@
+.example-container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.example-is-mobile .example-toolbar {
+  position: fixed;
+  z-index: 2;
+}
+
+h1.example-app-name {
+  margin-left: 8px;
+}
+
+.example-sidenav-container {
+  flex: 1;
+}
+
+.example-is-mobile .example-sidenav-container {
+  flex: 1 0 auto;
+}
+
+mat-nav-list > a {
+  width: 170px;
+}
+.white-icon{
+  color: white;
+}
+
+.menu-spacer {
+  flex: 1 1 auto;
+}
+mat-toolbar {
+  background-color: var(--primary);
+}
+.logo {
+  margin-right: 5px;
+  height: 25px;
+  text-decoration: none;
+  background-color: white;
+  padding: 2px;
+  border-radius: 50%;
+}
+
+.account-name {
+  text-decoration: none;
+  font-size: 18px;
+  padding-top: 2px;
+  padding-left: 15px;
+  color: white;
+}
+.logout {
+  display: inline-block;
+}
+
+mat-nav-list {
+  a.active {
+    // border-left: 5px solid var(--accent);
+    background-color: var(--accent);
+    color: var(--white) !important;
+    mat-icon {
+      color: var(--white) !important;
+    }
+  }
+}
+
+a.app-name {
+  color: var(--white);
+  font-weight: bold;
+  font-size: 18px;
+}

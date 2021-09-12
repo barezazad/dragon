@@ -1,0 +1,38 @@
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+  <mat-toolbar class="example-toolbar">
+    <button mat-icon-button (click)="snav.toggle()">
+      <mat-icon class="white-icon">menu</mat-icon>
+    </button>
+    <a class="app-name" [routerLinkActive]="'active'" routerLink="/" mat-button>
+      <img src="assets/img/dragon1.png" alt="dragon" class="logo" />
+      {{ "dragon" | uppercase }}
+    </a>
+    <!-- <app-theme-picker></app-theme-picker> -->
+    <span class="menu-spacer"></span>
+
+    <a class="account-name" mat-button [routerLinkActive]="'active'" routerLink="/profile">
+      {{operatorName | titlecase}}
+    </a>
+
+    <a class="logout" mat-button (click)="logout()">
+      <mat-icon class="white-icon">exit_to_app</mat-icon>
+    </a>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+    <mat-sidenav [opened]=true #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
+      [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+      <mat-nav-list>
+        <a mat-list-item [routerLinkActive]="'active'" routerLink="dashboard">
+          <mat-icon>home</mat-icon>Home
+        </a>
+        <a mat-list-item [routerLinkActive]="'active'" routerLink="settings">
+          <mat-icon>settings</mat-icon>Setting
+        </a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
