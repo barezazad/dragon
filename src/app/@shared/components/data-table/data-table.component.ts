@@ -68,9 +68,9 @@ export class DataTableComponent implements OnInit {
   }
 
   sortData(event: any): void {
-    this.paginator.pageIndex = 0;
+    this.paginator.pageIndex = 1;
     this.params.page_size = this.paginator.pageSize;
-    this.params.page = 0;
+    this.params.page = 1;
     this.params.order_by = event.active;
     this.params.direction = event.direction;
 

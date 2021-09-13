@@ -64,7 +64,7 @@ export class UserListComponent implements OnInit {
     private checkAuthService: CheckAuthService
   ) {
     this.pageSize = env.perPageOptions[0];
-    this.page = 0;
+    this.page = 1;
     this.direction = 'desc';
     this.orderBy = 'id';
     this.listParams = {
