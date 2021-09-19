@@ -57,6 +57,9 @@ export class ValidatorService {
   letter = [
     Validators.pattern('^[a-zA-Z\s]+$')
   ];
+  required = [
+    Validators.required
+  ];
 
   setErrorsFiled(InvalidFileds: any[]): void {
     this.errFileds = [];
@@ -81,6 +84,17 @@ export class ValidatorService {
       }
     }
     return '';
+  }
+
+  IsRequired(validations: any): boolean {
+    if (validations) {
+      for (const el of validations) {
+        if (el === Validators.required) {
+          return true;
+        }
+      }
+    }
+    return false;
   }
 
 }

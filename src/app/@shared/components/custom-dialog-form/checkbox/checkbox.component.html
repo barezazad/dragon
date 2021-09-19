@@ -1,0 +1,5 @@
+<mat-label>{{ data.label | titlecase }}</mat-label><br>
+<mat-checkbox *ngFor="let i of data?.options?.source" [checked]="data.defaultValue.includes(i[optionValue])?true:false"
+  (change)="CheckList($event,data.name)" [value]="i[optionValue]">
+  {{ i[optionName] | titlecase }}
+</mat-checkbox>

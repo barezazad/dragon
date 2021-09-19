@@ -1,0 +1,108 @@
+<div class="app-sub">
+  <mat-card>
+    <mat-card-content class="pageTitle mat-elevation-z6">
+
+      <section class="target">
+        <span *appPermission="config.topBar?.addButton?.permission">
+          <button class="primary-button" mat-stroked-button (click)="CustomDialog(config?.topBar?.addButton?.action,config?.topBar?.addButton?.name
+            ,config?.topBar?.addButton?.noneCustom,null)">
+            <mat-icon>{{config.topBar?.addButton?.icon}}</mat-icon>
+            {{ config.topBar?.addButton?.action | titlecase }} {{ config.configure?.title | titlecase }}
+          </button>
+        </span>
+      </section>
+
+      <section class="searchForm">
+        <form (ngSubmit)="search(searchBar.value)" *ngIf="config.topBar?.search?.status">
+          <mat-form-field appearance="outline">
+            <input #searchBar matInput placeholder="Search">
+            <mat-icon matSuffix>search</mat-icon>
+          </mat-form-field>
+        </form>
+      </section>
+      <section class="filter-section">
+      </section>
+      <section class="export-section">
+        <span *appPermission="config.topBar?.export?.permission">
+          <app-file-export [data]="config.topBar?.export?.excelEndPoint">
+          </app-file-export>
+        </span>
+      </section>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<div class="app-sub">
+  <mat-card>
+    <mat-card-content class="panel-container" *ngIf="dataSource">
+      <div class="table-container">
+        <mat-table #table [dataSource]="dataSource" matSort (matSortChange)="sortData($event)">
+
+          <ng-container *ngFor="let column of config.columns" [matColumnDef]="column.columnDef">
+            <!-- Header -->
+            <mat-header-cell *matHeaderCellDef [mat-sort-header]=" column.columnDef !='action' ? column.columnDef : '' "
+              [disabled]=" column.columnDef === 'action' ? true : false ">
+              {{ column.header }}
+            </mat-header-cell>
+
+            <!-- Cell -->
+            <mat-cell *matCellDef="let row">
+
+              <ng-container *ngIf="!column.route">
+                <span [ngClass]="column.cell(row)">
+                  <span *ngIf="column.class === true;else NoClass" appDataTable
+                    [DataInput]="{column:column.columnDef,data:row}">
+                    {{ column && column.cell(row) ? (column.cell(row) | dynamicPipe:column.type) : column.cell(row)}}
+                  </span>
+                  <ng-template #NoClass>
+                    {{ column && column.cell(row) ? (column.cell(row) | dynamicPipe:column.type) : column.cell(row)}}
+                  </ng-template>
+                </span>
+              </ng-container>
+
+              <ng-container *ngIf="column.route">
+                <a [routerLink]="[column.route + row[column.routeId?column.routeId:'']]">{{ column && column.cell(row) ?
+                  (column.cell(row) |dynamicPipe:column.type) : column.cell(row)}} </a>
+              </ng-container>
+
+              <span>
+                <button *ngIf="column.columnDef === 'action'" mat-icon-button [matMenuTriggerFor]="menu"
+                  aria-label="Actions">
+                  <mat-icon>more_vert</mat-icon>
+                </button>
+              </span>
+              <mat-menu #menu="matMenu">
+                <div *ngFor="let el of dynamicButton">
+                  <span *appPermission="el.permission">
+                    <button [class]="el.class" mat-menu-item *ngIf="el?.path !== undefined"
+                      [routerLink]="row.id +'/'+ el.path">
+                      <mat-icon>{{el.icon}}</mat-icon>
+                      <span>{{ el.name | titlecase }}</span>
+                    </button>
+                  </span>
+
+                  <span *appPermission="el.permission">
+                    <button [class]="el.class" mat-menu-item *ngIf="!el.path && el.path === undefined"
+                      (click)="CustomDialog(el?.action,el?.name,el?.noneCustom,row)">
+                      <mat-icon>{{el.icon}}</mat-icon>
+                      <span>{{ el.name | titlecase }}</span>
+                    </button>
+                  </span>
+
+                </div>
+              </mat-menu>
+
+            </mat-cell>
+          </ng-container>
+          <mat-header-row *matHeaderRowDef=" displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+        </mat-table>
+      </div>
+      <mat-paginator showFirstLastButtons #paginator [length]="count" [pageSize]="pageSize"
+        [pageSizeOptions]="perPageOptions" (page)="pageEvent = paginatorHandler($event)" [pageIndex]="pageIndex">
+      </mat-paginator>
+
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CustomComponentComponent } from './components/custom-component/custom-component.component';
 import { SettingTabComponent } from './components/setting-tab/setting-tab.component';
 import { UserListComponent } from './components/user-list/user-list.component';
 import { SettingComponent } from './setting.component';
@@ -21,10 +22,11 @@ const routes: Routes = [
             path: 'users',
             component: UserListComponent,
           },
-          // {
-          //   path: 'roles',
-          //   component: RolesComponent,
-          // },
+          {
+            path: 'roles',
+            component: CustomComponentComponent,
+            // component: RolesComponent,
+          },
         ],
       },
     ],

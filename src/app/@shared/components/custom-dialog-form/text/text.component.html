@@ -1,0 +1,10 @@
+<mat-form-field appearance="outline" [style.width.px]="data?.width" [formGroup]="group">
+  <mat-label>{{ data?.label| titlecase }}</mat-label>
+  <input matInput [type]="data.type"
+    [required]="validator.IsRequired(data?.validation) && data?.validationAction == action"
+    [formControlName]="data.name">
+  <mat-icon *ngIf="data.icon" matSuffix>{{data.icon}}</mat-icon>
+  <mat-error>
+    <app-error-handling [formGroup]="group" [field]="data?.name" [message]="data?.label"></app-error-handling>
+  </mat-error>
+</mat-form-field>

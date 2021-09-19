@@ -1,0 +1,45 @@
+<h1 mat-dialog-title>{{ data?.title | titlecase }}</h1>
+<mat-divider></mat-divider><br>
+
+<form [formGroup]="dataForm" (ngSubmit)="submit()" (keydown.enter)="$event.preventDefault()">
+  <mat-dialog-content class="content">
+
+    <span *ngFor="let el of fields">
+      <div class="mat-field" *ngIf="el.category === 'text' && el.ignoreIn !== data?.action && !el.hide">
+        <app-text [data]="el" [fieldForm]="fields" [action]="data?.action" [group]="dataForm"></app-text>
+      </div>
+      <div class="mat-field" *ngIf="el.category === 'password' && el.ignoreIn !== data?.action && !el.hide">
+        <app-password [data]="el" [fieldForm]="fields" [action]="data?.action" [group]="dataForm"></app-password>
+      </div>
+      <div class="mat-field" *ngIf="el.category === 'textarea' && el.ignoreIn !== data?.action && !el.hide">
+        <app-text-area [data]="el" [fieldForm]="fields" [action]="data?.action" [group]="dataForm"></app-text-area>
+      </div>
+      <div class="mat-field" *ngIf="el.category === 'datePicker' && el.ignoreIn !== data?.action && !el.hide">
+        <app-date-picker [data]="el" [fieldForm]="fields" [action]="data?.action" [group]="dataForm"></app-date-picker>
+      </div>
+      <div class="mat-field" *ngIf="el.category === 'dropDown' && el.ignoreIn !== data?.action && !el.hide">
+        <app-drop-down [data]="el" [fieldForm]="fields" [action]="data?.action" [group]="dataForm"></app-drop-down>
+      </div>
+      <div class="mat-field" [style.width.px]="el.width"
+        *ngIf="el.category === 'radioBtn' && el.ignoreIn !== data?.action && !el.hide">
+        <app-radio-button [data]="el" [fieldForm]="fields"></app-radio-button>
+      </div>
+      <div class="mat-field" [style.width.px]="el.width"
+        *ngIf="el.category === 'checkbox' && el.ignoreIn !== data?.action && !el.hide">
+        <app-checkbox [data]="el" [fieldForm]="fields"></app-checkbox>
+      </div>
+    </span>
+
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end" *ngIf="dataForm">
+    <div class="action-button">
+      <button class="cancel" mat-stroked-button type="button" cdkFocusInitial (click)="close(false)">
+        <mat-icon>cancel</mat-icon> {{ 'Cancel' | titlecase }}
+      </button>
+      <button class="submit" mat-stroked-button [disabled]="!dataForm.valid" (click)="submit()" type="submit">
+        <mat-icon>done</mat-icon>{{ 'Submit' | titlecase }}
+      </button>
+    </div>
+  </mat-dialog-actions>
+</form>

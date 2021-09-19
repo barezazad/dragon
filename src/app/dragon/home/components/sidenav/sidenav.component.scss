@@ -31,6 +31,9 @@ mat-sidenav-content{
 
 mat-nav-list > a {
   width: 170px;
+  mat-icon{
+    margin-right: 10px;
+  }
 }
 .white-icon{
   color: white;

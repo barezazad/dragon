@@ -1,0 +1,8 @@
+<mat-form-field appearance="outline" [style.width.px]="data?.width" [formGroup]="group">
+  <mat-label>{{ data?.label| titlecase }}</mat-label>
+  <textarea matInput[formControlName]="data.name"
+    [required]="validator.IsRequired(data?.validation) && data?.validationAction == action"></textarea>
+  <mat-error>
+    <app-error-handling [formGroup]="group" [field]="data?.name" [message]="data?.label"></app-error-handling>
+  </mat-error>
+</mat-form-field>

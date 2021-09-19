@@ -1,0 +1,7 @@
+<mat-radio-group>
+  <mat-label>{{ data.label | titlecase }}</mat-label><br>
+  <mat-radio-button *ngFor="let i of data.options?.source" [value]="i[optionValue]"
+    [checked]="data.defaultValue.includes(i[optionValue])?true:false" (click)="setValue(data.name,i[optionValue])">
+    {{ i[optionName] | titlecase }}
+  </mat-radio-button>
+</mat-radio-group>
